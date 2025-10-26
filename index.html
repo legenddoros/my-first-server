@@ -1,18 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Server</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>BOO! 👻</title>
     <style>
-        /* Your CSS goes here */
+      /* Basic reset and spooky background */
+      body {
+        margin: 0;
+        height: 100vh;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      /* The spooky "BOO" text */
+      h1 {
+        color: white;
+        font-family: 'Creepster', cursive, sans-serif;
+        font-size: 10px; /* starts tiny */
+        opacity: 0;
+        transform: scale(0.1);
+        transition: transform 3s ease-in-out, opacity 2s ease-in;
+      }
+
+      /* Animation class that triggers the effect */
+      h1.grow {
+        opacity: 1;
+        transform: scale(20);
+      }
+
+      /* Optional — glowing effect */
+      h1 {
+        text-shadow: 0 0 10px #ff6600, 0 0 20px #ff3300, 0 0 40px #ff0000;
+      }
+
+      /* Optional spooky vibe: fade background to orange */
+      @keyframes backgroundFade {
+        0% {
+          background-color: black;
+        }
+        100% {
+          background-color: #1a0000;
+        }
+      }
+      body.animate-bg {
+        animation: backgroundFade 3s ease-in forwards;
+      }
     </style>
-</head>
-<body>
-    <!-- Your HTML goes here -->
-    
+  </head>
+  <body>
+    <h1 id="boo">BOO</h1>
+
     <script>
-        // Your javascript code (optional)
+      // Wait a short moment before triggering the animation
+      window.addEventListener('load', () => {
+        const boo = document.getElementById('boo');
+        document.body.classList.add('animate-bg');
+        setTimeout(() => {
+          boo.classList.add('grow');
+        }, 500);
+      });
     </script>
-</body>
+  </body>
 </html>
